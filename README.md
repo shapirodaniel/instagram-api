@@ -17,6 +17,10 @@ $ curl http://localhost:5500/api/users -H 'Content-Type:application/json' -d '{"
 
 curl is a cli client that lets you perform network requests just like postman, insomnia, and `axios / fetch` from the browser! (and other clients, there are tons of options ... :D)
 
+if you see the following response you're good to go! check out your db with `psql instagram-clone` and run a select all statement `select * from users;` to verify your new user!
+
+![](/assets/post-new-user.png)
+
 # Extending the project
 
 There are Tag and Post entities in our schema. How could you hook these up in RESTful routes to allow users to associate tags with posts, or fetch all the posts by a certain user, or even <em>follow other users</em> -- the sky's the limit y'all, there are a ton of cool magic methods you can leverage to make those instance-level associations happen!
