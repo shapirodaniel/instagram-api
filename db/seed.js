@@ -18,14 +18,14 @@ const posts = [
   },
   {
     src: 'https://images.pexels.com/photos/10918415/pexels-photo-10918415.jpeg?cs=srgb&dl=pexels-luke-robin-way-10918415.jpg&fm=jpg',
-    content: 'water droplets are so amazing',
+    content: 'serene seascape so amazing',
   },
 ];
 
 const tags = [
-  { tagName: '#ohyeah' },
-  { tagName: '#lol' },
-  { tagName: 'pillarsisover' },
+  { tagName: '#oceanlife' },
+  { tagName: '#nature' },
+  { tagName: 'nohashtag' },
 ];
 
 async function seed() {
@@ -51,12 +51,14 @@ async function seed() {
 
     for (let i = 0; i < createdPosts.length; i++) {
       const post = createdPosts[i];
-      if (i % 2 === 0) {
+      if (i % 2 !== 0) {
         await post.addTags([...createdTags.filter((_, idx) => idx % 2 === 0)]);
       } else {
         await post.addTags([...createdTags.filter((_, idx) => idx % 2 === 1)]);
       }
     }
+
+    await db.close();
   } catch (err) {
     console.error(err);
     throw err;
